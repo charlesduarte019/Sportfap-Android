@@ -8,5 +8,5 @@ import com.android.volley.VolleyError;
 
 public interface ReqRepObserver {
     void doOnResponse(String response);
-//    void onErrorResponse(VolleyError error);
+    void onErrorResponse(VolleyError error);
 }

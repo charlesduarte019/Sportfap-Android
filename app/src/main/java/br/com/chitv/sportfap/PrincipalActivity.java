@@ -1,38 +1,23 @@
 package br.com.chitv.sportfap;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
 
 import com.android.volley.VolleyError;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import connection.ReqRep;
 import connection.ReqRepObserver;
 
-public class PrincipalActivity extends AppCompatActivity implements ReqRepObserver {
+public class PrincipalActivity extends AppCompatActivity implements ReqRepObserver{
 
-    private ListView lv_jogadores;
+    private Toolbar toolbar;
+    private FloatingActionButton floatingActionButton;
 
-    private Button bt_reqRep;
-
-    private JSONArray jsonArray;
-    private JSONObject jsonObject;
-    private ArrayList<String> arrayJogadores;
-//    private Map<String, String> params;
     private ReqRep reqRep;
-
     private final String URL = "rest/jogador/listarJogadores";
 
     @Override
@@ -56,39 +41,40 @@ public class PrincipalActivity extends AppCompatActivity implements ReqRepObserv
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
-        System.out.println("Retornou");
+        Log.d("OnResponse", response);
     }
 
-//    @Override
-//    public void onErrorResponse(VolleyError error) {
-//        System.out.println("Erro: " + error);
-//    }
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Log.d("ErrorResponse", error.toString());
+    }
 
     private void onClickListener() {
-        bt_reqRep.setOnClickListener(new View.OnClickListener() {
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reqRep.methodGet(URL);
+                Log.d("ClickListener", "Update");
             }
         });
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        loadingUIElements();
+        setSupportActionBar(toolbar);
 
         reqRep = new ReqRep();
         reqRep.setReqRepObserved(this);
 
-//        params = new HashMap<>();
-        arrayJogadores = new ArrayList<>();
-
-        lv_jogadores = (ListView) findViewById(R.id.lv_jogadores);
-        bt_reqRep = (Button) findViewById(R.id.bt_req_rep);
-
         onClickListener();
-//        params.put("","");
-//        reqRep.methodPost(params, URL);
+    }
+
+    private void loadingUIElements(){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab_sync_princ);
     }
 }

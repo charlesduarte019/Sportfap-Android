@@ -19,7 +19,7 @@ public class ReqRep {
     }
 
     public void methodGet(String URL) {
-        StringRequest getRequest = new StringRequest(Request.Method.GET, (IP + URL),
+        StringRequest getRequest = new StringRequest(Request.Method.GET, (IP),
                 getResponseListener(),
                 getErrorResponse()
         );
@@ -53,7 +53,7 @@ public class ReqRep {
         return new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                // response
+                // Observer
                 reqRepObserver.doOnResponse(response);
             }
         };
@@ -63,7 +63,8 @@ public class ReqRep {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                reqRepObserver.onErrorResponse(error);
+                // Observer
+                reqRepObserver.onErrorResponse(error);
             }
         };
     }
