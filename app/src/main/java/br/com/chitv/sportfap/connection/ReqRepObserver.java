@@ -1,4 +1,4 @@
-package connection;
+package br.com.chitv.sportfap.connection;
 
 import com.android.volley.VolleyError;
 

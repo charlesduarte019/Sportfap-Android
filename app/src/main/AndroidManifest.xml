@@ -6,24 +6,49 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="connection.Queue"
+        android:name=".connection.Queue"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.PrincipalActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:label="@string/toolbar_name"
-            android:name=".PrincipalActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:name=".view.EventoActivity"
+            android:parentActivityName=".controller.PrincipalActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.chitv.sportfap.controller.PrincipalActivity" />
+        </activity>
+
+        <activity
+            android:name=".view.TimeActivity"
+            android:parentActivityName=".view.EventoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.chitv.sportfap.view.EventoActivity" />
+        </activity>
+
+        <activity
+            android:name=".view.JogadoresActivity"
+            android:parentActivityName=".view.TimeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.chitv.sportfap.view.TimeActivity" />
+        </activity>
+
     </application>
 
 </manifest>

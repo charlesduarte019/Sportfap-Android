@@ -1,7 +1,6 @@
-package connection;
+package br.com.chitv.sportfap.connection;
 
 import android.app.Application;
-import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
