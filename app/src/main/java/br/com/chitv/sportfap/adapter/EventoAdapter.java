@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.chitv.sportfap.R;
-import br.com.chitv.sportfap.dao.EventosDao;
+import br.com.chitv.sportfap.model.EventoModel;
 import br.com.chitv.sportfap.holders.EventoHolders;
 
 /**
@@ -19,9 +19,9 @@ import br.com.chitv.sportfap.holders.EventoHolders;
 public class EventoAdapter extends RecyclerView.Adapter<EventoHolders> {
 
     private Context context;
-    private List<EventosDao> itemList;
+    private List<EventoModel> itemList;
 
-    public EventoAdapter(Context context, List<EventosDao> itemList) {
+    public EventoAdapter(Context context, List<EventoModel> itemList) {
         this.context = context;
         this.itemList = itemList;
     }

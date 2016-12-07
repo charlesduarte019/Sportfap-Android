@@ -1,14 +1,14 @@
-package br.com.chitv.sportfap.dao;
+package br.com.chitv.sportfap.model;
 
 /**
  * Created by c019 on 07/12/2016.
  */
 
-public class EventosDao {
+public class EventoModel {
 
     private String nome;
 
-    public EventosDao(String nome){
+    public EventoModel(String nome){
         this.nome = nome;
     }
 

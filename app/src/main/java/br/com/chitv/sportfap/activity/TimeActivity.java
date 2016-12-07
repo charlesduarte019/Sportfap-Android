@@ -1,13 +1,10 @@
 package br.com.chitv.sportfap.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
 
 import com.android.volley.VolleyError;
 
@@ -15,18 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.chitv.sportfap.R;
-import br.com.chitv.sportfap.adapter.EventoAdapter;
 import br.com.chitv.sportfap.adapter.TimeAdapter;
 import br.com.chitv.sportfap.connection.ReqRepObserver;
-import br.com.chitv.sportfap.dao.EventosDao;
-import br.com.chitv.sportfap.dao.TimesDao;
+import br.com.chitv.sportfap.model.TimeModel;
 
 public class TimeActivity extends AppCompatActivity implements ReqRepObserver {
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
-    private List<TimesDao> arrayListTime;
+    private List<TimeModel> arrayListTime;
     private TimeAdapter timeAdapter;
 
     @Override
@@ -51,11 +46,11 @@ public class TimeActivity extends AppCompatActivity implements ReqRepObserver {
 
     }
 
-    public List<TimesDao> getList() {
+    public List<TimeModel> getList() {
 
-        List<TimesDao> list = new ArrayList<>();
+        List<TimeModel> list = new ArrayList<>();
 
-        list.add(new TimesDao("Piratas"));
+        list.add(new TimeModel("Piratas"));
 
         return list;
     }

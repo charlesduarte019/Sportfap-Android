@@ -10,15 +10,15 @@ package br.com.chitv.sportfap.adapter;
         import java.util.List;
 
         import br.com.chitv.sportfap.R;
-        import br.com.chitv.sportfap.dao.CategoriasDao;
+        import br.com.chitv.sportfap.model.CategoriaModel;
         import br.com.chitv.sportfap.holders.PrincipalHolders;
 
 public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalHolders> {
 
     private Context context;
-    private List<CategoriasDao> itemList;
+    private List<CategoriaModel> itemList;
 
-    public PrincipalAdapter(Context context, List<CategoriasDao> itemList) {
+    public PrincipalAdapter(Context context, List<CategoriaModel> itemList) {
         this.context = context;
         this.itemList = itemList;
     }

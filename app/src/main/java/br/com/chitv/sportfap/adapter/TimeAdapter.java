@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.chitv.sportfap.R;
-import br.com.chitv.sportfap.dao.TimesDao;
+import br.com.chitv.sportfap.model.TimeModel;
 import br.com.chitv.sportfap.holders.TimeHolders;
 
 /**
@@ -19,9 +19,9 @@ import br.com.chitv.sportfap.holders.TimeHolders;
 public class TimeAdapter extends RecyclerView.Adapter<TimeHolders> {
 
     private Context context;
-    private List<TimesDao> itemList;
+    private List<TimeModel> itemList;
 
-    public TimeAdapter(Context context, List< TimesDao> itemList) {
+    public TimeAdapter(Context context, List<TimeModel> itemList) {
         this.context = context;
         this.itemList = itemList;
     }

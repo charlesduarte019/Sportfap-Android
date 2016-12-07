@@ -11,14 +11,14 @@ import java.util.List;
 
 import br.com.chitv.sportfap.R;
 import br.com.chitv.sportfap.adapter.PrincipalAdapter;
-import br.com.chitv.sportfap.dao.CategoriasDao;
+import br.com.chitv.sportfap.model.CategoriaModel;
 
 public class PrincipalActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
-    private List<CategoriasDao> arrayListCategoria;
+    private List<CategoriaModel> arrayListCategoria;
     private PrincipalAdapter principalAdapter;
 
     @Override
@@ -43,14 +43,14 @@ public class PrincipalActivity extends AppCompatActivity {
 
     }
 
-    public List<CategoriasDao> getList() {
+    public List<CategoriaModel> getList() {
 
-        List<CategoriasDao> list = new ArrayList<>();
+        List<CategoriaModel> list = new ArrayList<>();
 
-        list.add(new CategoriasDao(R.drawable.soccer_border, "Futebol"));
-        list.add(new CategoriasDao(R.drawable.volley_border, "Volei"));
-        list.add(new CategoriasDao(R.drawable.basket_border, "Basquete"));
-        list.add(new CategoriasDao(R.drawable.bolling_border, "Boliche"));
+        list.add(new CategoriaModel(R.drawable.soccer_border, "Futebol"));
+        list.add(new CategoriaModel(R.drawable.volley_border, "Volei"));
+        list.add(new CategoriaModel(R.drawable.basket_border, "Basquete"));
+        list.add(new CategoriaModel(R.drawable.bolling_border, "Boliche"));
 
         return list;
     }

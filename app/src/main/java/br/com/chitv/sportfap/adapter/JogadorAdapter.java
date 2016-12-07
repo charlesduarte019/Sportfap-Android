@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.chitv.sportfap.R;
-import br.com.chitv.sportfap.dao.JogadoresDao;
+import br.com.chitv.sportfap.model.JogadorModel;
 import br.com.chitv.sportfap.holders.JogadorHolders;
 
 /**
@@ -19,9 +19,9 @@ import br.com.chitv.sportfap.holders.JogadorHolders;
 public class JogadorAdapter  extends RecyclerView.Adapter<JogadorHolders> {
 
     private Context context;
-    private List<JogadoresDao> itemList;
+    private List<JogadorModel> itemList;
 
-    public JogadorAdapter(Context context, List<JogadoresDao> itemList) {
+    public JogadorAdapter(Context context, List<JogadorModel> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
