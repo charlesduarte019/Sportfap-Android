@@ -19,7 +19,6 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:paddingTop="5dp"
             android:scrollbars="vertical" />
 
 </RelativeLayout>

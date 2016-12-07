@@ -7,57 +7,52 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.chitv.sportfap.R;
-import br.com.chitv.sportfap.adapter.PrincipalViewAdapter;
+import br.com.chitv.sportfap.adapter.PrincipalAdapter;
+import br.com.chitv.sportfap.dao.CategoriasDao;
 
 public class PrincipalActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
+    private RecyclerView recyclerView;
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
+    private List<CategoriasDao> arrayListCategoria;
+    private PrincipalAdapter principalAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle(R.string.title_toolbar_principal);
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
         gaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, 1);
         recyclerView.setLayoutManager(gaggeredGridLayoutManager);
 
-        ArrayList<Integer> gaggeredListImg = getListImg();
-        ArrayList<String> gaggeredListText = getListText();
+        arrayListCategoria = getList();
 
-        PrincipalViewAdapter rcAdapter = new PrincipalViewAdapter(PrincipalActivity.this, gaggeredListImg, gaggeredListText);
-        recyclerView.setAdapter(rcAdapter);
+        principalAdapter = new PrincipalAdapter(PrincipalActivity.this, arrayListCategoria);
+        recyclerView.setAdapter(principalAdapter);
 
     }
 
-    private ArrayList<Integer> getListImg(){
-        ArrayList<Integer> listViewItems = new ArrayList();
+    public List<CategoriasDao> getList() {
 
-        listViewItems.add(R.drawable.soccer_border);
-        listViewItems.add(R.drawable.basket_border);
-        listViewItems.add(R.drawable.volley_border);
-        listViewItems.add(R.drawable.bolling_border);
+        List<CategoriasDao> list = new ArrayList<>();
 
-        return listViewItems;
-    }
+        list.add(new CategoriasDao(R.drawable.soccer_border, "Futebol"));
+        list.add(new CategoriasDao(R.drawable.volley_border, "Volei"));
+        list.add(new CategoriasDao(R.drawable.basket_border, "Basquete"));
+        list.add(new CategoriasDao(R.drawable.bolling_border, "Boliche"));
 
-    private ArrayList<String> getListText(){
-        ArrayList<String> listViewItems = new ArrayList();
-
-        listViewItems.add("Futebol");
-        listViewItems.add("Basquete");
-        listViewItems.add("Volley");
-        listViewItems.add("Boliche");
-
-        return listViewItems;
+        return list;
     }
 }
 
