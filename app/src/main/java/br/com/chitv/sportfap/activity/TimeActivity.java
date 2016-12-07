@@ -1,4 +1,4 @@
-package br.com.chitv.sportfap.view;
+package br.com.chitv.sportfap.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

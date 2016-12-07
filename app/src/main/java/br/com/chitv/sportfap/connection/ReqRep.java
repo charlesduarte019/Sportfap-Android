@@ -12,14 +12,14 @@ import java.util.Map;
 public class ReqRep {
 
     private ReqRepObserver reqRepObserver;
-    private static final String IP = "http://192.168.43.140:8080/sportfap/";
+    private static final String IP = "http://192.168.1.9:8080/sportfap/";
 
     public void setReqRepObserved(ReqRepObserver reqRepObserver) {
         this.reqRepObserver = reqRepObserver;
     }
 
     public void methodGet(String URL) {
-        StringRequest getRequest = new StringRequest(Request.Method.GET, (IP),
+        StringRequest getRequest = new StringRequest(Request.Method.GET, (IP + URL),
                 getResponseListener(),
                 getErrorResponse()
         );

@@ -5,19 +5,34 @@
     android:id="@+id/content_time"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.com.chitv.sportfap.view.TimeActivity"
+    tools:context="br.com.chitv.sportfap.activity.TimeActivity"
     tools:showIn="@layout/activity_time">
 
-    <Button
-        android:text="Time"
+    <TextView
+        android:paddingLeft="5dp"
+        android:text="Principal/Eventos/Times"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button_t" />
+        android:id="@+id/textView2" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:layout_marginLeft="@dimen/activity_left_margin"
+        android:layout_marginRight="@dimen/activity_right_margin"
+        android:layout_marginBottom="@dimen/activity_bottom_margin">
+
+        <Button
+            android:text="Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_t" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="br.com.chitv.sportfap.view.EventoActivity">
+    tools:context="br.com.chitv.sportfap.activity.EventoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_evento" />
+    <include layout="@layout/content_evento"
+        android:id="@+id/include" />
 
 </android.support.design.widget.CoordinatorLayout>

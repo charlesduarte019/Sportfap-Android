@@ -5,19 +5,41 @@
     android:id="@+id/content_jogadores"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.com.chitv.sportfap.view.JogadoresActivity"
+    tools:context="br.com.chitv.sportfap.activity.JogadoresActivity"
     tools:showIn="@layout/activity_jogadores">
 
-    <Button
-        android:text="Jogador"
+    <TextView
+        android:paddingLeft="5dp"
+        android:text="Principal/Eventos/Times/Jogadores"
         android:layout_width="wrap_content"
+        android:textSize="16dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button_j" />
+        android:id="@+id/textView2" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:layout_marginLeft="@dimen/activity_left_margin"
+        android:layout_marginRight="@dimen/activity_right_margin"
+        android:layout_marginBottom="@dimen/activity_bottom_margin">
+
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_fab" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_recyclerteste"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:elevation="0dp"
+            android:paddingBottom="80dp" />
+
+    </LinearLayout>
+
 </RelativeLayout>
