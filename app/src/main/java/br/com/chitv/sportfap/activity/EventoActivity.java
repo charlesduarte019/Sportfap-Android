@@ -5,16 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.chitv.sportfap.R;
 import br.com.chitv.sportfap.adapter.EventoAdapter;
+import br.com.chitv.sportfap.adapter.JogadorAdapter;
+import br.com.chitv.sportfap.connection.ReqRep;
 import br.com.chitv.sportfap.connection.ReqRepObserver;
 import br.com.chitv.sportfap.model.EventoModel;
+import br.com.chitv.sportfap.model.JogadorModel;
 
 public class EventoActivity extends AppCompatActivity implements ReqRepObserver {
 
@@ -23,6 +32,12 @@ public class EventoActivity extends AppCompatActivity implements ReqRepObserver 
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
     private List<EventoModel> arrayListEvento;
     private EventoAdapter eventoAdapter;
+
+    private ReqRep reqRep;
+    private final String URL = "rest/evento/listarEventos";
+
+    private JSONArray jsonArray;
+    private JSONObject jsonObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,38 +54,36 @@ public class EventoActivity extends AppCompatActivity implements ReqRepObserver 
         gaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, 1);
         recyclerView.setLayoutManager(gaggeredGridLayoutManager);
 
-        arrayListEvento = getList();
+        reqRep = new ReqRep();
+        reqRep.setReqRepObserved(this);
+        reqRep.methodGet(URL);
 
-        eventoAdapter = new EventoAdapter(EventoActivity.this, arrayListEvento);
-        recyclerView.setAdapter(eventoAdapter);
-
-    }
-
-    public List<EventoModel> getList() {
-
-        List<EventoModel> list = new ArrayList<>();
-
-        list.add(new EventoModel("Campeonato 2012.1"));
-        list.add(new EventoModel("Campeonato 2012.2"));
-        list.add(new EventoModel("Campeonato 2013.1"));
-        list.add(new EventoModel("Campeonato 2013.2"));
-        list.add(new EventoModel("Campeonato 2014.1"));
-        list.add(new EventoModel("Campeonato 2014.2"));
-        list.add(new EventoModel("Campeonato 2015.1"));
-        list.add(new EventoModel("Campeonato 2015.2"));
-        list.add(new EventoModel("Campeonato 2016.1"));
-        list.add(new EventoModel("Campeonato 2016.2"));
-
-        return list;
     }
 
     @Override
     public void doOnResponse(String response) {
 
+        arrayListEvento = new ArrayList<>();
+
+        try {
+            jsonArray = new JSONArray(response);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jsonObject = new JSONObject(jsonArray.getString(i));
+                arrayListEvento.add(new EventoModel(jsonObject.getString("nome")));
+            }
+
+            eventoAdapter = new EventoAdapter(EventoActivity.this, arrayListEvento);
+            recyclerView.setAdapter(eventoAdapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Log.d("Error Evento", error.toString());
     }
 }

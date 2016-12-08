@@ -12,7 +12,8 @@ import java.util.Map;
 public class ReqRep {
 
     private ReqRepObserver reqRepObserver;
-    private static final String IP = "http://192.168.1.9:8080/sportfap/";
+
+    private static final String IP = "http://192.168.0.119:8080/sportfap/";
 
     public void setReqRepObserved(ReqRepObserver reqRepObserver) {
         this.reqRepObserver = reqRepObserver;

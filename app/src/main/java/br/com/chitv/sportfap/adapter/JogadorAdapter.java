@@ -37,7 +37,7 @@ public class JogadorAdapter  extends RecyclerView.Adapter<JogadorHolders> {
     public void onBindViewHolder(JogadorHolders holder, int position) {
         holder.jogadorIcon.setImageResource(itemList.get(position).getIdIcon());
         holder.jogadorText.setText(itemList.get(position).getNome());
-        holder.jogadorNum.setText(itemList.get(position).getNumero());
+        holder.jogadorNum.setText(holder.jogadorNum.getText() + itemList.get(position).getNumero());
     }
 
     @Override
